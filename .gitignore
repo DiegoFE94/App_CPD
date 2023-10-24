@@ -1,0 +1,66 @@
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+
+# User-specific files
+.Ruserdata
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# R Environment Variables
+.Renviron
+
+# Folders
+extdata/
+00_preprocess_metadata/data
+01_preprocess_sequences/data
+01_preprocess_sequences/plots
+01_preprocess_sequences/outs
+02_preprocess_pseq/data
+03_exploratory_analysis/data
+03_exploratory_analysis/plots
+04_abundance_analysis/data
+04_abundance_analysis/plots
+05_batch_analysis/data
+05_batch_analysis/plots
+
+# Extensions
+Icon
+Icon?
+.DS_Store
+*.DS_Store
+*.xlsx
+*.pdf
+*.png
+*.Rmd
+*.html
+*.rds
+*.txt
