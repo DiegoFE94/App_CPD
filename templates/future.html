@@ -1,0 +1,45 @@
+{% extends "layout.html"%}
+{% block title %}
+transference_PolypDetector
+{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Transference</title>
+    <style>
+        /* Establecer estilo para vínculos*/
+        a { font-style: italic;font-size: 20px; font-family: "Verdana";}
+        /* Establece un margen izquierdo de 20 píxeles para el párrafo */
+        p {margin-left: 20px; margin-right:20px; text-align: justify;}
+        video {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="titulo-blanco-cursiva">Transferencia</h1>
+    <p>Este prototipo, aunque sea solo un pequeño caso de uso y presente limitaciones, es un ejemplo del potencial y las capacidades de la Inteligencia Artificial (a través de redes de neuronas) en el ámbito médico, como herramienta de apoyo al clínico. Actualmente desde el RNASA se está ahondando en metodologías más complejas y aquellas más utilizadas en el estado del arte actual. En la actualidad, en el campo de detección y clasificación de pólipos se están utilizando sobre todo las metodologías YOLO (You Only Look Once) y SSD (Single Shot Multibox Detector).</p>
+    <p>En el contexto de la detección de pólipos en imágenes de colonoscopia, YOLO es una metodología que utiliza una red neuronal para dividir la imagen en una cuadrícula y predecir cuadros delimitadores (bounding boxes), etiquetas de clase y puntajes de confianza para cada pólipo presente en la imagen. Esta aproximación permite localizar con precisión y eficiencia los pólipos en una sola pasada de la red, lo que resulta crucial para la detección oportuna de pólipos durante un procedimiento de colonoscopia en tiempo real. SSD utiliza una serie de cajas de anclaje (anchor boxes) de diferentes tamaños y relaciones de aspecto en múltiples capas de una red neuronal convolucional. Esta capacidad es lo que lo hace especialmente útil, ya que permite detectar pólipos de diferentes tamaños y formas en las imágenes de colonoscopia. Esto es importante, ya que los pólipos pueden variar en apariencia, y SSD puede adaptarse eficazmente a estas variaciones. SSD también proporciona resultados en tiempo real, lo que lo convierte en una opción valiosa para asistir a los clínicos durante la colonoscopia.</p>
+    
+    <p>Teniendo esto en consideración, el propósito del grupo es fusionar estas metodologías de vanguardia con conjuntos de datos más extensos y sofisticados, con el fin de desarrollar modelos de entrenamiento que sean más versátiles y precisos. Esta tecnología podría aplicarse, por ejemplo, para reducir la carga en la revisión de vídeos de colonoscopia. En este escenario, el modelo detecta a lo largo del vídeo los cuadros en los que haya posibles pólipos, los recopila y los presenta al profesional de la salud para su evaluación y toma de decisiones.</p>
+    <img src="{{url_for('static', filename='frames.png')}}"  alt="Icon" class="image-frams">
+    <br>
+    <p>Otro potencial de esta tecnología consiste en su integración en tiempo real durante el procedimiento de endoscopia. Mientras el clínico lleva a cabo la intervención, los fotogramas se envían al modelo, que inmediatamente busca y detecta posibles pólipos. Esto proporciona una valiosa asistencia al profesional de la salud durante la endoscopia, ayudándolo a identificar de manera más eficiente cualquier anomalía y permitiendo una toma de decisiones más precisa.</p>
+    <video controls>
+        <source src="static/video_app.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+    <br>
+    <center>
+        <a href="/" class="enlace-blanco">Inicio</a>
+    </center>
+    <br>
+    <p> </p>
+</body>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html"%}
+{% block title %}
+Prediction_PolypDetector
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <style>
+    a { font-style: italic;font-size: 20px; font-family: "Verdana";}
+    </style>
+
+    <!-- Icon in the top left corner -->
+    <img src="{{url_for('static', filename='icon.svg')}}"  alt="Icon" class="top-left-icon">
+    <!-- Icon in the left side -->
+    <img src="{{url_for('static', filename='UDC.png')}}"  alt="Icon" class="left-icon">
+    <!-- Icon in the middle -->
+    <img src="{{url_for('static', filename='RNASA.png')}}"  alt="Icon" class="mid-icon">
+    <!-- Icon in the right side -->
+    <img src="{{url_for('static', filename='INIBIC.png')}}"  alt="Icon" class="right-icon">
+    <!-- Icon in the top left corner -->
+    <img src="{{url_for('static', filename='IKERDATA.png')}}"  alt="Icon" class="top-right-icon">
+    <br>
+    <header class="text-white text-center">
+        <h1 class="display-4">Colonoscopic Polyp Detection</h1>
+        <p class="lead mb-5">Aquí se muestra la predicción de la imagen de entrada.</p>
+    </header>
+
+    <header class="text-white text-center">
+        <h1 class="display-5">Predicción</h1>
+        {% if predictions %}
+        <p class="display-10 text-dark font-weight-bold">{{predictions}}</p>
+        <img src="{{url_for('static', filename='image_with_rectangle.jpg')}}"  alt="Icon" class="image-rectangle">
+        {% else %}
+        <h1 class="display-4 text-dark font-weight-bold">{{err}}</h1>
+        {% endif %}
+    </header>
+    <br>
+    <br>
+    <center>
+        <a href="/" class="enlace-blanco">Inicio</a>
+    </center>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "layout.html"%}
+{% block title %}
+Home_PolypDetector
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <style>
+        a { font-style: italic;font-size: 20px; font-family: "Verdana";}
+    </style>
+    
+    <!-- Icon in the top left corner -->
+    <img src="{{url_for('static', filename='icon.svg')}}"  alt="Icon" class="top-left-icon">
+    <!-- Icon in the left side -->
+    <img src="{{url_for('static', filename='UDC.png')}}"  alt="Icon" class="left-icon">
+    <!-- Icon in the middle -->
+    <img src="{{url_for('static', filename='RNASA.png')}}"  alt="Icon" class="mid-icon">
+    <!-- Icon in the right side -->
+    <img src="{{url_for('static', filename='INIBIC.png')}}"  alt="Icon" class="right-icon">
+    <!-- Icon in the top left corner -->
+    <img src="{{url_for('static', filename='IKERDATA.png')}}"  alt="Icon" class="top-right-icon">
+    <br>
+    <br>
+    <header class="text-white text-center">
+        <h1 class="display-4">Colonoscopic Polyp Detector</h1>
+        <br>
+        <p class="lead mb-5">Una aplicación para detectar pólipos en imágenes colonoscópicas. Seleccione o simplemente suelte una imagen en la barra blanca.</p>
+    </header>
+
+    <img src="{{url_for('static', filename='icon_app.png')}}"  alt="Icon" class="app-icon">
+
+    <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+
+            <!-- Upload image input-->
+            <form action="{{ url_for('predict_image_file') }}" enctype="multipart/form-data" method="POST" onsubmit="return disableButton()">
+                <div class="input-group px-2 py-2 rounded-pill bg-white shadow-sm">
+                    <input class="form-control border-0" id="upload" name="file" type="file">
+                    <label class="font-weight-light text-muted" for="upload" id="upload-label">Suelta aquí una imagen: </label>
+                    <div class="input-group-append">
+                        <label class="btn btn-light m-0 rounded-pill px-4" for="upload"> <i
+                                class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                                class="text-uppercase font-weight-bold text-muted">Seleccionar</small></label>
+                    </div>
+                </div>
+
+                <!-- Uploaded image area-->
+                <p class="font-italic text-white text-center">La imagen cargada se mostrará en el recuadro de previsualización de abajo.</p>
+                <div class="image-area mt-4"><img alt="" class="img-fluid rounded shadow-sm mx-auto d-block"
+                                                  id="imageResult" name="imageResult"
+                                                  src="#"></div>
+
+                <!-- Submit button-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <input class="btn btn-primary my-3" type="submit" value="Iniciar" id="submitBtn" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <script>
+                function disableButton() {
+                    var submitBtn = document.getElementById('submitBtn');
+                    submitBtn.disabled = true;
+                    submitBtn.value = 'Localizando...';
+            
+                    // Habilita el botón después de un tiempo o cuando hayas terminado con las operaciones
+                    setTimeout(function() {
+                        submitBtn.disabled = false;
+                        submitBtn.value = 'Iniciar';
+                    }, 15000); // Después de 15 segundos, habilita el botón nuevamente
+            
+                    return true; // Devuelve true para permitir el envío del formulario
+                }
+            </script>
+            <br>
+            <center>
+                <a href="/about" class="enlace-blanco">Información</a> <span style="margin-left: 20px; margin-right: 20px;"></span> <a href="/future" class="enlace-blanco">Transferencia</a> 
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
