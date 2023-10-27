@@ -92,6 +92,13 @@
     width: 45%;
 }
 
+.image-logos {
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    border-radius: 10px;
+}
+
 .image-abs {
     display: block;
     margin: 0 auto;
@@ -113,6 +120,13 @@
     border-radius: 10px;
 }
 
+.image-rend {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    border-radius: 10px;
+}
+
 .image-frams {
     display: block;
     margin: 0 auto;
@@ -122,6 +136,7 @@
 .enlace-blanco{
     color: white;
     font-style: italic;
+    font-size: 20px
     /* Otros estilos que desees aplicar a tus enlaces blancos y en cursiva */
 }
 

@@ -9,26 +9,26 @@ About_PolypDetector
     <title>About</title>
     <style>
         /* Establecer estilo para vínculos*/
-        a { font-style: italic;font-size: 20px; font-family: "Verdana";}
+        a { font-style: italic;font-size: 15px; font-family: "Verdana";}
         /* Establece un margen izquierdo de 20 píxeles para el párrafo */
-        p {margin-left: 60px; margin-right:60px; text-align: justify;}
-        li {margin-left: 60px; margin-right:60px; text-align: justify;}
+        p {margin-left: 90px; margin-right:90px; text-align: justify;}
+        li {margin-left: 90px; margin-right:90px; text-align: justify;}
     </style>
 </head>
 <body>
     <h1 class="titulo-blanco-cursiva">Información </h1>
-    <p> dsafsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds</p>
+    <p> Colonoscopic Polyp Detector es una aplicación prototipo para la detección de pólipos. A partir de una base de datos de imágenes y la localización de los pólipos en ellas se ha entrenado una red de neuronas. Una vez entrenada, cuando se le proporciona una imagen de entrada, una ventana se va desplazando a lo largo de la imagen en busca de pólipos. Al final devuelve una imagen con dicha ventana encuadrando la zona de la imagen donde mayor probabilidad hay de que se encuentre un pólipo.</p>
 
     <img src="{{url_for('static', filename='Abstract.png')}}"  alt="Icon" class="image-abs">
     <br>
     <h2 class="titulo-blanco-cursiva">Metodología</h2>
 
-    <p>Esta aplicación prototipo para la detección de pólipos utiliza como base un modelo de predicción que usa una red de neuronas. Se ha desarrollado en Python usando las librerías de Tensorflow y Keras (entre otras). Para el entrenamiento del modelo se han utilizado 606 imágenes extraídas de la base de datos de CVC-ClinicDB, con resolución de 384 x 288. Este conjunto de datos contiene varios ejemplos de fotogramas de pólipos y su correspondiente "ground truth". Estos "ground truth" consisten en una máscara que se corresponde con la región cubierta por el pólipo en la imagen.</p>
-    <p>A partir de estas 606 imágenes y sus máscaras se extrajeron recortes que se correspondían con las zonas de pólipos y otras que se correspondían con tejido sano. Por lo que se parte de 606 imágenes de cada clase (No pólipo y Pólipo). Estas 1212 imágenes se barajaron y se dividieron de la siguiente manera: el 70 por ciento de ellas para el entrenamiento del modelo, un 10 porciento para validación y el 20 por ciento restante para el test.</p>
+    <p>Esta aplicación prototipo se ha desarrollado en Python usando las librerías de Tensorflow y Keras (entre otras). Para el entrenamiento del modelo se han utilizado 606 imágenes extraídas de la base de datos de CVC-ClinicDB, con resolución de 384 x 288. Este conjunto de datos contiene varios ejemplos de fotogramas de pólipos y su correspondiente "ground truth". Estos "ground truth" consisten en una máscara que se corresponde con la región cubierta por el pólipo en la imagen.</p>
+    <p>A partir de estas 606 imágenes y sus "ground truth" se extrajeron recortes que se correspondían con las zonas de pólipos y otras que se correspondían con tejido sano. Por lo que se parte de 606 imágenes de cada clase (No pólipo y Pólipo). Estas 1212 imágenes se barajaron y se dividieron de la siguiente manera: el 70 por ciento de ellas para el entrenamiento del modelo, un 10 porciento para validación y el 20 por ciento restante para el test.</p>
     
     <img src="{{url_for('static', filename='Entrenamiento.png')}}"  alt="Icon" class="image-entr">
     <br>
-    <p>Respecto a las redes de entrenamiento se probaron diferentes arquitecturas:</p>
+    <p>Respecto a la fase de entrenamiento, se ha realizado una búsqueda de diferentes hiperparámetros, como pueden ser: número de filtros, tamaño de kernel de las capas convolucionales, capa de pooling, función de pérdida, optimizador de la función de perdida, dropout y batch size. Además, también se probaron diferentes arquitecturas:</p>
     <ul>
         <li>Una capa convolucional, seguida de un pooling y una capa Fully connected</li>
         <li>Dos capas convolucionales (cada una seguida de un polling) y una capa Fully connected</li>
@@ -36,9 +36,14 @@ About_PolypDetector
     </ul>
     <img src="{{url_for('static', filename='Arquitecturas.png')}}"  alt="Icon" class="image-arq">
     <br>
-    <p>A mayores de ha realizado una búsqueda de hiperparametros: número de filtros, tamaño de kernel de las capas convolucionales, capa de pooling, función de pérdida, optimizador de la función de perdida, dropout y batch size.</p>
-    <p>Este prototipo presenta varias limitaciones devenidas de varios aspectos: por ejemplo, las imágenes presentan una resolución muy baja y un número considerado de imágenes son borrosas, lo que dificulta la extracción de características, en algunos "ground truth" la máscara coje tejido sano junto con los pólipos, y a la hora de hacer los recortes de manera indirecta algunas veces se coje tejido sano, entorpeciendo la capacidad predictiva del modelo. </p>
+
+
+    <h2 class="titulo-blanco-cursiva">Rendimiento</h2>
+    <p>Después de realizar el benchmarking de las arquitecturas y los diferentes hiperparámetros. La arquitectura que obtenía mejores resultados tanto en entrenamiento, validación y test fue la conformada por 3 capas convolucionales. Obteniendo rendimientos por encima de 0.90. Siendo este modelo el que conforma esta aplicación. </p>
+    <img src="{{url_for('static', filename='Rendimiento.png')}}"  alt="Icon" class="image-rend">
+    <br>
     <p>Adicionalmente, usando TensorFlow Lite y Dart se ha implementado una aplicación prototipo para Android, la cual está disponible en la Play Store. Dicha aplicación detecta si en una imagen de entrada se corresponde con un recorte de pólipo o tejido sano. La aplicación móvil está disponible a través del siguiente enlace: <a href="https://play.google.com/store/apps/details?id=com.xlandc.polyprecogn"> PolypRecogn</a>. Finalmente, respecto a esta aplicación demostrable, esta desarrollada en Flask con Python, todos los requisitos necesarios para desplegarla están recogidos en el siguiente repositorio de <a href="https://github.com/DiegoFE94/App_CPD"> Github</a>.</p>
+    <p>Este prototipo presenta varias limitaciones devenidas de varios aspectos: por ejemplo, las imágenes presentan una resolución muy baja y un número considerado de imágenes son borrosas, lo que dificulta la extracción de características, en algunos "ground truth" la máscara coje tejido sano junto con los pólipos, y a la hora de hacer los recortes de manera indirecta algunas veces se coje tejido sano, entorpeciendo la capacidad predictiva del modelo. </p>
     <center>
         <a href="/" class="enlace-blanco">Inicio</a>
     </center>
