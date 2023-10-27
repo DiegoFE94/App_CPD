@@ -7,6 +7,7 @@ This web app is made using Flask framework and is all about predicting a polyp i
 # Dependencies
 - Python == 3.8
 - Flask == 2.2.1
+- Werkzeug == 2.2.2
 - keras == 2.10.0
 - numpy == 1.23.2
 - Pillow == 9.3.0
