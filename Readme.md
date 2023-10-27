@@ -2,7 +2,7 @@
 
 This web app is made using Flask framework and is all about predicting a polyp in a colonoscopic image based on the deep learning model trained using small CNNs.
 
-![alt text](static/App_Captura.png){width=50%}
+![alt text](./static/App_Captura.png){width=50%}
 
 # Dependencies
 - Python == 3.8
