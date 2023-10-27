@@ -59,7 +59,6 @@ Icon?
 *.DS_Store
 *.xlsx
 *.pdf
-*.png
 *.Rmd
 *.html
 *.rds
