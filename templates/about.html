@@ -11,11 +11,18 @@ About_PolypDetector
         /* Establecer estilo para vínculos*/
         a { font-style: italic;font-size: 20px; font-family: "Verdana";}
         /* Establece un margen izquierdo de 20 píxeles para el párrafo */
-        p {margin-left: 20px; margin-right:20px; text-align: justify;}
+        p {margin-left: 60px; margin-right:60px; text-align: justify;}
+        li {margin-left: 60px; margin-right:60px; text-align: justify;}
     </style>
 </head>
 <body>
     <h1 class="titulo-blanco-cursiva">Información </h1>
+    <p> dsafsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds</p>
+
+    <img src="{{url_for('static', filename='Abstract.png')}}"  alt="Icon" class="image-abs">
+    <br>
+    <h2 class="titulo-blanco-cursiva">Metodología</h2>
+
     <p>Esta aplicación prototipo para la detección de pólipos utiliza como base un modelo de predicción que usa una red de neuronas. Se ha desarrollado en Python usando las librerías de Tensorflow y Keras (entre otras). Para el entrenamiento del modelo se han utilizado 606 imágenes extraídas de la base de datos de CVC-ClinicDB, con resolución de 384 x 288. Este conjunto de datos contiene varios ejemplos de fotogramas de pólipos y su correspondiente "ground truth". Estos "ground truth" consisten en una máscara que se corresponde con la región cubierta por el pólipo en la imagen.</p>
     <p>A partir de estas 606 imágenes y sus máscaras se extrajeron recortes que se correspondían con las zonas de pólipos y otras que se correspondían con tejido sano. Por lo que se parte de 606 imágenes de cada clase (No pólipo y Pólipo). Estas 1212 imágenes se barajaron y se dividieron de la siguiente manera: el 70 por ciento de ellas para el entrenamiento del modelo, un 10 porciento para validación y el 20 por ciento restante para el test.</p>
     

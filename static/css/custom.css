@@ -92,6 +92,13 @@
     width: 45%;
 }
 
+.image-abs {
+    display: block;
+    margin: 0 auto;
+    width: 65%;
+    border-radius: 10px;
+}
+
 .image-entr {
     display: block;
     margin: 0 auto;
@@ -109,7 +116,7 @@
 .image-frams {
     display: block;
     margin: 0 auto;
-    width: 50%;
+    width: 55%;
     border-radius: 10px;
 }
 .enlace-blanco{
